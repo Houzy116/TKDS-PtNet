@@ -1,0 +1,1041 @@
+================ (Sat Jul 29 23:05:13 2023) ================
+{project_name:TKDS-PtNet-sentinel2_Ukraine_size6_RandomDelandCopy_M_5%,
+ root_dir:/home/ubuntu/python_script/Ukraine/,
+ dataset:
+    {name:Udamagedv3,
+     args:
+        {size:6,
+         city:MSR,
+         mode:all}
+ transform_train:
+    {to_tensor:True,
+     hv_flip_together:True}
+ transform_val:
+    {to_tensor:True,
+     hv_flip_together:False}
+ loader:
+    {name:Usize6multitime,
+     mode:RandomDelandCopyv2,
+     use_samples_percent:1,
+     batch_size:62,
+     num_workers:4,
+     shuffle:False}
+ model:
+    {name:Utkdsptnet,
+     args:
+        {n_class:2,
+ train:
+    {name:UmultitimeMMD,
+     gpu_ids:[2],
+     lr:0.01,
+     lr_policy:step,
+     loadbestmodel_whenbackwateracc:[False, 10],
+     step_size:20,
+     gamma:0.5,
+     momentum:0.9,
+     w_decay:0.0005,
+     max_epochs:20,
+     loss:cross_entropy,
+     tv_loss:-1,
+     load_pretrain:[False, 'SupCon1000v2', 'ckpt_epoch_1000.pth', '/home/hk/python_script/Ukraine/checkpoints/试一试_mynet6size120mtc1v7_Syria_size120_allcitiesall_effectweight_v3_multi-time_RandomDelandCopyv2_6/best_ckpt.pt'],
+     load_checkpoint:False,
+     loss_fun_args:
+        {weight:[1, 6],
+         ignore_index:-100}
+     print_step_interval:50,
+     acc_index:F1_1}
+ v_generalization:[False, 'channels3normalized']}
+lr: 0.0100000
+Is_training: True   epoch: 0/19   batch: 1/353   need_time: 1.8214896024598015h   loss: 0.7810283899307251 =  0.11077380180358887 + 0.2169310450553894 + 0.45332351326942444 + 0.0 running_F1_1: 0.0 sum: 0/5 
+Is_training: True   epoch: 0/19   batch: 51/353   need_time: 0.4577026735207973h   loss: 0.8443845510482788 =  0.26769810914993286 + 0.22905848920345306 + 0.3476279079914093 + 0.0 running_F1_1: 0.0 sum: 0/13 
+Is_training: True   epoch: 0/19   batch: 101/353   need_time: 0.4348092993178399h   loss: 1.111741065979004 =  0.5717083215713501 + 0.10182373970746994 + 0.43820905685424805 + 0.0 running_F1_1: 0.0 sum: 0/41 
+Is_training: True   epoch: 0/19   batch: 151/353   need_time: 0.4217101902623623h   loss: 0.30359384417533875 =  0.14844438433647156 + 0.06792761385440826 + 0.08722185343503952 + 0.0 running_F1_1: 0.0 sum: 0/6 
+Is_training: True   epoch: 0/19   batch: 201/353   need_time: 0.41556427310008814h   loss: 0.6102455854415894 =  0.1377413123846054 + 0.2131820172071457 + 0.25932225584983826 + 0.0 running_F1_1: 0.0 sum: 0/10 
+Is_training: True   epoch: 0/19   batch: 251/353   need_time: 0.40906473015141026h   loss: 0.5577700138092041 =  0.2807702422142029 + 0.09639527648687363 + 0.1806044578552246 + 0.0 running_F1_1: 0.0 sum: 0/6 
+Is_training: True   epoch: 0/19   batch: 301/353   need_time: 0.40503576017548887h   loss: nan =  0.12880389392375946 + nan + 0.06498602777719498 + 0.0 running_F1_1: 0.0 sum: 0/0 
+Is_training: True   epoch: 0/19   batch: 351/353   need_time: 0.40171265880718376h   loss: 0.9411210417747498 =  0.2777937352657318 + 0.3871912956237793 + 0.27613598108291626 + 0.0 running_F1_1: 0.0 sum: 0/17 
+Is_training: True   epoch: 0/19   epoch_F1_1: 0.0 
+acc: 0.98210 
+miou: 0.49105 
+mf1: 0.49548 
+auc: 0.87249 
+iou_0: 0.98210 
+iou_1: 0.00000 
+F1_0: 0.99097 
+F1_1: 0.00000 
+precision_0: 0.98223 
+precision_1: 0.00000 
+recall_0: 0.99987 
+recall_1: 0.00000 
+
+
+Begin evaluation...
+Is_training: False   epoch: 0/19   batch: 1/324   need_time: 74.92373890433046h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 0/19   batch: 51/324   need_time: 2.909776777854333h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 0/19   batch: 101/324   need_time: 1.5022431294318117h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 0/19   batch: 151/324   need_time: 1.0209149051897706h    running_F1_1: 0.0 sum: 0/7
+Is_training: False   epoch: 0/19   batch: 201/324   need_time: 0.7782955619368223h    running_F1_1: 0.0 sum: 0/11
+Is_training: False   epoch: 0/19   batch: 251/324   need_time: 0.6305112476575944h    running_F1_1: 0.0 sum: 0/5
+Is_training: False   epoch: 0/19   batch: 301/324   need_time: 0.5317265813884883h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 0/19   epoch_F1_1: 0.0 
+acc: 0.97723 
+miou: 0.48862 
+mf1: 0.49424 
+auc: 0.84889 
+iou_0: 0.97723 
+iou_1: 0.00000 
+F1_0: 0.98848 
+F1_1: 0.00000 
+precision_0: 0.97723 
+precision_1: 0.00000 
+recall_0: 1.00000 
+recall_1: 0.00000 
+
+
+Lastest model updated. Epoch_F1_1=0.0, Historical_best_F1_1=0.0 (at epoch 0
+)
+lr: 0.0100000
+Is_training: True   epoch: 1/19   batch: 1/353   need_time: 0.45828092350926203h   loss: 0.6453476548194885 =  0.20214834809303284 + 0.22110550105571747 + 0.22209380567073822 + 0.0 running_F1_1: 0.0 sum: 0/5 
+Is_training: True   epoch: 1/19   batch: 51/353   need_time: 0.4464416755251433h   loss: 0.43073683977127075 =  0.13901332020759583 + 0.13092511892318726 + 0.16079840064048767 + 0.0 running_F1_1: 0.0 sum: 0/13 
+Is_training: True   epoch: 1/19   batch: 101/353   need_time: 0.43801954488468986h   loss: 0.6104995012283325 =  0.19633632898330688 + 0.12164568901062012 + 0.29251745343208313 + 0.0 running_F1_1: 0.0 sum: 0/41 
+Is_training: True   epoch: 1/19   batch: 151/353   need_time: 0.42925257060590755h   loss: 0.34173500537872314 =  0.20633012056350708 + 0.07442494481801987 + 0.0609799325466156 + 0.0 running_F1_1: 0.0 sum: 0/6 
+Is_training: True   epoch: 1/19   batch: 201/353   need_time: 0.42230407609834564h   loss: 0.40056347846984863 =  0.11631523817777634 + 0.14610517024993896 + 0.13814304769039154 + 0.0 running_F1_1: 0.0 sum: 0/10 
+Is_training: True   epoch: 1/19   batch: 251/353   need_time: 0.41549644225173527h   loss: 0.537314772605896 =  0.33348047733306885 + 0.09172707796096802 + 0.11210723221302032 + 0.0 running_F1_1: 0.0 sum: 0/6 
+Is_training: True   epoch: 1/19   batch: 301/353   need_time: 0.4101756378712545h   loss: nan =  0.3265787363052368 + nan + 0.07198776304721832 + 0.006482982076704502 running_F1_1: 0.0 sum: 17/0 
+Is_training: True   epoch: 1/19   batch: 351/353   need_time: 0.4047101717426422h   loss: 1.1923041343688965 =  0.47961166501045227 + 0.47153976559638977 + 0.23963528871536255 + 0.0015174506697803736 running_F1_1: 0.7499999350402551 sum: 15/17 
+Is_training: True   epoch: 1/19   epoch_F1_1: 0.2618704562449333 
+acc: 0.98195 
+miou: 0.56628 
+mf1: 0.62637 
+auc: 0.96495 
+iou_0: 0.98190 
+iou_1: 0.15066 
+F1_0: 0.99087 
+F1_1: 0.26187 
+precision_0: 0.98533 
+precision_1: 0.47926 
+recall_0: 0.99646 
+recall_1: 0.18015 
+
+
+Begin evaluation...
+Is_training: False   epoch: 1/19   batch: 1/324   need_time: 0.8510605720315181h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 1/19   batch: 51/324   need_time: 0.7477709177459382h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 1/19   batch: 101/324   need_time: 0.6671086675518162h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 1/19   batch: 151/324   need_time: 0.6021563598562781h    running_F1_1: 0.3999999403953613 sum: 3/7
+Is_training: False   epoch: 1/19   batch: 201/324   need_time: 0.5479586445557344h    running_F1_1: 0.6249999394640368 sum: 5/11
+Is_training: False   epoch: 1/19   batch: 251/324   need_time: 0.5027202074471913h    running_F1_1: 0.9090908302748542 sum: 6/5
+Is_training: False   epoch: 1/19   batch: 301/324   need_time: 0.4646094261371453h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 1/19   epoch_F1_1: 0.5255149977211695 
+acc: 0.98167 
+miou: 0.66894 
+mf1: 0.75808 
+auc: 0.84233 
+iou_0: 0.98148 
+iou_1: 0.35641 
+F1_0: 0.99065 
+F1_1: 0.52551 
+precision_0: 0.98718 
+precision_1: 0.63966 
+recall_0: 0.99415 
+recall_1: 0.44594 
+
+
+Lastest model updated. Epoch_F1_1=0.5255149977211695, Historical_best_F1_1=0.0 (at epoch 0
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 2/19   batch: 1/353   need_time: 0.4308242841135086h   loss: 0.6708891987800598 =  0.4050333499908447 + 0.18769115209579468 + 0.07738222181797028 + 0.0007824726053513587 running_F1_1: 0.363636296642723 sum: 6/5 
+Is_training: True   epoch: 2/19   batch: 51/353   need_time: 0.42354939584629303h   loss: 0.5100383162498474 =  0.29511329531669617 + 0.1157594621181488 + 0.09759566932916641 + 0.0015698587521910667 running_F1_1: 0.577777725737776 sum: 32/13 
+Is_training: True   epoch: 2/19   batch: 101/353   need_time: 0.41745797847757243h   loss: 0.4642275273799896 =  0.24049997329711914 + 0.10105210542678833 + 0.1202443316578865 + 0.00243111839517951 running_F1_1: 0.8636363019689589 sum: 47/41 
+Is_training: True   epoch: 2/19   batch: 151/353   need_time: 0.4110834853491984h   loss: 0.4391844570636749 =  0.3308723568916321 + 0.08110430836677551 + 0.025669347494840622 + 0.0015384615398943424 running_F1_1: 0.6666666048544466 sum: 12/6 
+Is_training: True   epoch: 2/19   batch: 201/353   need_time: 0.40554331836021246h   loss: 0.4475092887878418 =  0.1848231554031372 + 0.16047467291355133 + 0.10142035037279129 + 0.0007911392604000866 running_F1_1: 0.6666665989675693 sum: 8/10 
+Is_training: True   epoch: 2/19   batch: 251/353   need_time: 0.39977117217532776h   loss: 0.571171760559082 =  0.36646580696105957 + 0.1004466637969017 + 0.09727168828248978 + 0.006987577769905329 running_F1_1: 0.2857142499028456 sum: 29/6 
+Is_training: True   epoch: 2/19   batch: 301/353   need_time: 0.3948034314419647h   loss: nan =  0.23053856194019318 + nan + 0.14389248192310333 + 0.008103727363049984 running_F1_1: 0.0 sum: 39/0 
+Is_training: True   epoch: 2/19   batch: 351/353   need_time: 0.3901189929887893h   loss: 0.8828456997871399 =  0.3108339309692383 + 0.38907164335250854 + 0.18066394329071045 + 0.002276176121085882 running_F1_1: 0.6857142214872451 sum: 18/17 
+Is_training: True   epoch: 2/19   epoch_F1_1: 0.6619202026419035 
+acc: 0.98538 
+miou: 0.73993 
+mf1: 0.82723 
+auc: 0.98048 
+iou_0: 0.98517 
+iou_1: 0.49468 
+F1_0: 0.99253 
+F1_1: 0.66192 
+precision_0: 0.99645 
+precision_1: 0.56191 
+recall_0: 0.98864 
+recall_1: 0.80525 
+
+
+Begin evaluation...
+Is_training: False   epoch: 2/19   batch: 1/324   need_time: 0.6184312401727843h    running_F1_1: 0.0 sum: 3/0
+Is_training: False   epoch: 2/19   batch: 51/324   need_time: 0.5761391151288638h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 2/19   batch: 101/324   need_time: 0.5394636591855843h    running_F1_1: 0.0 sum: 1/13
+Is_training: False   epoch: 2/19   batch: 151/324   need_time: 0.5071170944287288h    running_F1_1: 0.3999999403953613 sum: 3/7
+Is_training: False   epoch: 2/19   batch: 201/324   need_time: 0.4777767657230021h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 2/19   batch: 251/324   need_time: 0.45173153731917537h    running_F1_1: 0.9090908302748542 sum: 6/5
+Is_training: False   epoch: 2/19   batch: 301/324   need_time: 0.42813558682194885h    running_F1_1: 0.0 sum: 4/0
+Is_training: False   epoch: 2/19   epoch_F1_1: 0.5601299511963821 
+acc: 0.98011 
+miou: 0.68443 
+mf1: 0.77498 
+auc: 0.88388 
+iou_0: 0.97985 
+iou_1: 0.38901 
+F1_0: 0.98982 
+F1_1: 0.56013 
+precision_0: 0.98966 
+precision_1: 0.56410 
+recall_0: 0.98999 
+recall_1: 0.55621 
+
+
+Lastest model updated. Epoch_F1_1=0.5601299511963821, Historical_best_F1_1=0.5255149977211695 (at epoch 1
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 3/19   batch: 1/353   need_time: 0.40606133159155217h   loss: 0.543505072593689 =  0.2722850441932678 + 0.18448308110237122 + 0.08517202734947205 + 0.0015649452107027173 running_F1_1: 0.333333268761645 sum: 7/5 
+Is_training: True   epoch: 3/19   batch: 51/353   need_time: 0.4000978740274531h   loss: 0.5252605676651001 =  0.34975460171699524 + 0.09923561662435532 + 0.07391554117202759 + 0.0023547881282866 running_F1_1: 0.6046511091497452 sum: 30/13 
+Is_training: True   epoch: 3/19   batch: 101/353   need_time: 0.39517507106114236h   loss: 0.4748726785182953 =  0.2973831295967102 + 0.1101333498954773 + 0.06654582172632217 + 0.0008103727595880628 running_F1_1: 0.9195401679573395 sum: 46/41 
+Is_training: True   epoch: 3/19   batch: 151/353   need_time: 0.3896687498125683h   loss: 0.49317097663879395 =  0.3966774344444275 + 0.08463616669178009 + 0.01185740064829588 + 0.0 running_F1_1: 0.9230768468958428 sum: 7/6 
+Is_training: True   epoch: 3/19   batch: 201/353   need_time: 0.38463762842896687h   loss: 0.39015644788742065 =  0.22898784279823303 + 0.12240054458379745 + 0.037976931780576706 + 0.0007911392604000866 running_F1_1: 0.9090908401268613 sum: 12/10 
+Is_training: True   epoch: 3/19   batch: 251/353   need_time: 0.37965782837000267h   loss: 0.5869000554084778 =  0.384127140045166 + 0.09833475947380066 + 0.09745059907436371 + 0.006987577769905329 running_F1_1: 0.2857142499028456 sum: 29/6 
+Is_training: True   epoch: 3/19   batch: 301/353   need_time: 0.37490632079671243h   loss: nan =  0.47558969259262085 + nan + 0.04213055968284607 + 0.0008103727595880628 running_F1_1: 0.0 sum: 11/0 
+Is_training: True   epoch: 3/19   batch: 351/353   need_time: 0.3704965189630868h   loss: 1.0500258207321167 =  0.381247878074646 + 0.4056454002857208 + 0.2623738646507263 + 0.0007587253348901868 running_F1_1: 0.7999999350971688 sum: 13/17 
+Is_training: True   epoch: 3/19   epoch_F1_1: 0.763320614092722 
+acc: 0.99041 
+miou: 0.80375 
+mf1: 0.87921 
+auc: 0.98959 
+iou_0: 0.99026 
+iou_1: 0.61723 
+F1_0: 0.99511 
+F1_1: 0.76332 
+precision_0: 0.99764 
+precision_1: 0.67974 
+recall_0: 0.99258 
+recall_1: 0.87033 
+
+
+Begin evaluation...
+Is_training: False   epoch: 3/19   batch: 1/324   need_time: 0.5240589781655904h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 3/19   batch: 51/324   need_time: 0.49837070230371133h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 3/19   batch: 101/324   need_time: 0.47472923363415354h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 3/19   batch: 151/324   need_time: 0.4530136421261298h    running_F1_1: 0.3999999403953613 sum: 3/7
+Is_training: False   epoch: 3/19   batch: 201/324   need_time: 0.43336602730896623h    running_F1_1: 0.6666666011751482 sum: 7/11
+Is_training: False   epoch: 3/19   batch: 251/324   need_time: 0.4148386306654691h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 3/19   batch: 301/324   need_time: 0.39800307650874217h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 3/19   epoch_F1_1: 0.6347606473732543 
+acc: 0.98579 
+miou: 0.72528 
+mf1: 0.81376 
+auc: 0.90028 
+iou_0: 0.98562 
+iou_1: 0.46494 
+F1_0: 0.99276 
+F1_1: 0.63476 
+precision_0: 0.98941 
+precision_1: 0.76538 
+recall_0: 0.99613 
+recall_1: 0.54223 
+
+
+Lastest model updated. Epoch_F1_1=0.6347606473732543, Historical_best_F1_1=0.5601299511963821 (at epoch 2
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 4/19   batch: 1/353   need_time: 0.3816576233232207h   loss: 0.49551576375961304 =  0.3380855619907379 + 0.13316355645656586 + 0.02426666021347046 + 0.0 running_F1_1: 0.8888888064725945 sum: 4/5 
+Is_training: True   epoch: 4/19   batch: 51/353   need_time: 0.3765914768083717h   loss: 0.5569406747817993 =  0.4239700138568878 + 0.08949347585439682 + 0.03955252468585968 + 0.003924646880477667 running_F1_1: 0.7428570821333946 sum: 22/13 
+Is_training: True   epoch: 4/19   batch: 101/353   need_time: 0.37173754668150044h   loss: 0.4891352653503418 =  0.3112258017063141 + 0.1093357652425766 + 0.06614259630441666 + 0.00243111839517951 running_F1_1: 0.9302324960849463 sum: 45/41 
+Is_training: True   epoch: 4/19   batch: 151/353   need_time: 0.36680437427652457h   loss: 0.4581829011440277 =  0.3684265911579132 + 0.08189494162797928 + 0.007861382327973843 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 4/19   batch: 201/353   need_time: 0.36223774310619433h   loss: 0.4646505117416382 =  0.2786563038825989 + 0.14112022519111633 + 0.04408286511898041 + 0.0007911392604000866 running_F1_1: 0.8888888182463509 sum: 8/10 
+Is_training: True   epoch: 4/19   batch: 251/353   need_time: 0.3575604210539251h   loss: 0.6899335384368896 =  0.5257778167724609 + 0.10542230308055878 + 0.0509694367647171 + 0.00776397529989481 running_F1_1: 0.3999999526977584 sum: 19/6 
+Is_training: True   epoch: 4/19   batch: 301/353   need_time: 0.35321769064477054h   loss: nan =  0.45169615745544434 + nan + 0.039834052324295044 + 0.0008103727595880628 running_F1_1: 0.0 sum: 13/0 
+Is_training: True   epoch: 4/19   batch: 351/353   need_time: 0.34895625802424785h   loss: 0.9651307463645935 =  0.3384104371070862 + 0.40065523982048035 + 0.22530637681484222 + 0.0007587253348901868 running_F1_1: 0.7586206255854991 sum: 12/17 
+Is_training: True   epoch: 4/19   epoch_F1_1: 0.7905389950129638 
+acc: 0.99163 
+miou: 0.82256 
+mf1: 0.89313 
+auc: 0.99254 
+iou_0: 0.99149 
+iou_1: 0.65363 
+F1_0: 0.99573 
+F1_1: 0.79054 
+precision_0: 0.99799 
+precision_1: 0.71163 
+recall_0: 0.99348 
+recall_1: 0.88914 
+
+
+Begin evaluation...
+Is_training: False   epoch: 4/19   batch: 1/324   need_time: 0.4646841989657835h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 4/19   batch: 51/324   need_time: 0.44625553201673673h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 4/19   batch: 101/324   need_time: 0.42920739472183594h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 4/19   batch: 151/324   need_time: 0.4132095247766246h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 4/19   batch: 201/324   need_time: 0.3981664953135958h    running_F1_1: 0.6249999394640368 sum: 5/11
+Is_training: False   epoch: 4/19   batch: 251/324   need_time: 0.38385311213186657h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 4/19   batch: 301/324   need_time: 0.3704312800728176h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 4/19   epoch_F1_1: 0.6452260745912671 
+acc: 0.98703 
+miou: 0.73157 
+mf1: 0.81931 
+auc: 0.90978 
+iou_0: 0.98687 
+iou_1: 0.47626 
+F1_0: 0.99339 
+F1_1: 0.64523 
+precision_0: 0.98887 
+precision_1: 0.85524 
+recall_0: 0.99796 
+recall_1: 0.51802 
+
+
+Lastest model updated. Epoch_F1_1=0.6452260745912671, Historical_best_F1_1=0.6347606473732543 (at epoch 3
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 5/19   batch: 1/353   need_time: 0.35734573005895337h   loss: 0.5485925674438477 =  0.34546583890914917 + 0.15341754257678986 + 0.04970920458436012 + 0.0 running_F1_1: 0.5714285033089815 sum: 2/5 
+Is_training: True   epoch: 5/19   batch: 51/353   need_time: 0.3526903746253539h   loss: 0.5949143767356873 =  0.4687064290046692 + 0.08863367885351181 + 0.034434545785188675 + 0.0031397175043821335 running_F1_1: 0.7878787252638116 sum: 20/13 
+Is_training: True   epoch: 5/19   batch: 101/353   need_time: 0.3482691652061598h   loss: 0.6256346106529236 =  0.45268163084983826 + 0.10584026575088501 + 0.0663023367524147 + 0.0008103727595880628 running_F1_1: 0.9069766821959304 sum: 45/41 
+Is_training: True   epoch: 5/19   batch: 151/353   need_time: 0.34372154417763046h   loss: 0.4926425516605377 =  0.4082314670085907 + 0.07818078994750977 + 0.0062302821315824986 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 5/19   batch: 201/353   need_time: 0.33943385580438135h   loss: 0.4450755715370178 =  0.31055179238319397 + 0.11817475408315659 + 0.01634902134537697 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 5/19   batch: 251/353   need_time: 0.33504117787790544h   loss: 0.6072311997413635 =  0.46543431282043457 + 0.10447832196950912 + 0.03654219210147858 + 0.000776397529989481 running_F1_1: 0.7692306958712113 sum: 7/6 
+Is_training: True   epoch: 5/19   batch: 301/353   need_time: 0.33082547985962085h   loss: nan =  0.45205608010292053 + nan + 0.023762717843055725 + 0.00243111839517951 running_F1_1: 0.0 sum: 6/0 
+Is_training: True   epoch: 5/19   batch: 351/353   need_time: 0.3266942111936096h   loss: 1.0133695602416992 =  0.41573524475097656 + 0.397397518157959 + 0.19947803020477295 + 0.0007587253348901868 running_F1_1: 0.7586206255854991 sum: 12/17 
+Is_training: True   epoch: 5/19   epoch_F1_1: 0.8217799051489227 
+acc: 0.99299 
+miou: 0.84518 
+mf1: 0.90910 
+auc: 0.99461 
+iou_0: 0.99288 
+iou_1: 0.69748 
+F1_0: 0.99643 
+F1_1: 0.82178 
+precision_0: 0.99836 
+precision_1: 0.74954 
+recall_0: 0.99450 
+recall_1: 0.90943 
+
+
+Begin evaluation...
+Is_training: False   epoch: 5/19   batch: 1/324   need_time: 0.4195751215477511h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 5/19   batch: 51/324   need_time: 0.40541878269504994h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 5/19   batch: 101/324   need_time: 0.3920116374268529h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 5/19   batch: 151/324   need_time: 0.37910974070803777h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 5/19   batch: 201/324   need_time: 0.36685023451365906h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 5/19   batch: 251/324   need_time: 0.3553160650634387h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 5/19   batch: 301/324   need_time: 0.344323135715162h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 5/19   epoch_F1_1: 0.6813756729262938 
+acc: 0.98797 
+miou: 0.75227 
+mf1: 0.83762 
+auc: 0.90928 
+iou_0: 0.98782 
+iou_1: 0.51673 
+F1_0: 0.99387 
+F1_1: 0.68138 
+precision_0: 0.98994 
+precision_1: 0.85854 
+recall_0: 0.99783 
+recall_1: 0.56482 
+
+
+Lastest model updated. Epoch_F1_1=0.6813756729262938, Historical_best_F1_1=0.6452260745912671 (at epoch 4
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 6/19   batch: 1/353   need_time: 0.333310780508963h   loss: 0.5510801076889038 =  0.4007151126861572 + 0.12767904996871948 + 0.02190345525741577 + 0.0007824726053513587 running_F1_1: 0.8888888064725945 sum: 4/5 
+Is_training: True   epoch: 6/19   batch: 51/353   need_time: 0.3288986380721018h   loss: 0.4853678047657013 =  0.36782118678092957 + 0.08869704604148865 + 0.026494761928915977 + 0.0023547881282866 running_F1_1: 0.8387096129148527 sum: 18/13 
+Is_training: True   epoch: 6/19   batch: 101/353   need_time: 0.3247274878612152h   loss: 0.6136617064476013 =  0.4516606330871582 + 0.10164278745651245 + 0.059547919780015945 + 0.0008103727595880628 running_F1_1: 0.9411764084179134 sum: 44/41 
+Is_training: True   epoch: 6/19   batch: 151/353   need_time: 0.32043616093261185h   loss: 0.507362961769104 =  0.4173964262008667 + 0.08194373548030853 + 0.008022756315767765 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 6/19   batch: 201/353   need_time: 0.31644161682190564h   loss: 0.42473897337913513 =  0.28533878922462463 + 0.12059636414051056 + 0.018803808838129044 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 6/19   batch: 251/353   need_time: 0.3122436011597633h   loss: 0.5676106810569763 =  0.4414312243461609 + 0.10197373479604721 + 0.024205747991800308 + 0.0 running_F1_1: 0.7692306958712113 sum: 7/6 
+Is_training: True   epoch: 6/19   batch: 301/353   need_time: 0.30819646171958653h   loss: nan =  0.49229127168655396 + nan + 0.010947585105895996 + 0.0016207455191761255 running_F1_1: 0.0 sum: 2/0 
+Is_training: True   epoch: 6/19   batch: 351/353   need_time: 0.30422462508746007h   loss: 1.007957100868225 =  0.45849093794822693 + 0.3689019978046417 + 0.17980541288852692 + 0.0007587253348901868 running_F1_1: 0.7999999350971688 sum: 13/17 
+Is_training: True   epoch: 6/19   epoch_F1_1: 0.8527307231084349 
+acc: 0.99430 
+miou: 0.86874 
+mf1: 0.92491 
+auc: 0.99647 
+iou_0: 0.99420 
+iou_1: 0.74327 
+F1_0: 0.99709 
+F1_1: 0.85273 
+precision_0: 0.99872 
+precision_1: 0.78787 
+recall_0: 0.99547 
+recall_1: 0.92923 
+
+
+Begin evaluation...
+Is_training: False   epoch: 6/19   batch: 1/324   need_time: 0.3818446586035832h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 6/19   batch: 51/324   need_time: 0.37003825229800064h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 6/19   batch: 101/324   need_time: 0.3589341468245417h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 6/19   batch: 151/324   need_time: 0.3483457886163242h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 6/19   batch: 201/324   need_time: 0.3381870210564684h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 6/19   batch: 251/324   need_time: 0.3283656961477479h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 6/19   batch: 301/324   need_time: 0.3189952604435692h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 6/19   epoch_F1_1: 0.670735787052723 
+acc: 0.98811 
+miou: 0.74628 
+mf1: 0.83234 
+auc: 0.90236 
+iou_0: 0.98796 
+iou_1: 0.50459 
+F1_0: 0.99394 
+F1_1: 0.67074 
+precision_0: 0.98920 
+precision_1: 0.90734 
+recall_0: 0.99873 
+recall_1: 0.53201 
+
+
+Lastest model updated. Epoch_F1_1=0.670735787052723, Historical_best_F1_1=0.6813756729262938 (at epoch 5
+)
+lr: 0.0100000
+Is_training: True   epoch: 7/19   batch: 1/353   need_time: 0.30953161380870725h   loss: 0.6770649552345276 =  0.47054797410964966 + 0.1491822600364685 + 0.05733472853899002 + 0.0 running_F1_1: 0.5714285033089815 sum: 2/5 
+Is_training: True   epoch: 7/19   batch: 51/353   need_time: 0.3053027301328513h   loss: 0.570289134979248 =  0.4383889138698578 + 0.10068289935588837 + 0.028862543404102325 + 0.0023547881282866 running_F1_1: 0.8387096129148527 sum: 18/13 
+Is_training: True   epoch: 7/19   batch: 101/353   need_time: 0.3013003039869943h   loss: 0.699065625667572 =  0.5133649706840515 + 0.11663811653852463 + 0.06744174659252167 + 0.0016207455191761255 running_F1_1: 0.9397589738491194 sum: 42/41 
+Is_training: True   epoch: 7/19   batch: 151/353   need_time: 0.2971688448596537h   loss: 0.5777161717414856 =  0.48486125469207764 + 0.0850687026977539 + 0.007786193396896124 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 7/19   batch: 201/353   need_time: 0.29319060801466185h   loss: 0.5249121189117432 =  0.40072670578956604 + 0.11430185288190842 + 0.009883599355816841 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 7/19   batch: 251/353   need_time: 0.2891479285870596h   loss: 0.5848612189292908 =  0.4582165777683258 + 0.10996967554092407 + 0.0166749507188797 + 0.0 running_F1_1: 0.857142784157582 sum: 8/6 
+Is_training: True   epoch: 7/19   batch: 301/353   need_time: 0.28521643385597395h   loss: nan =  0.4733332395553589 + nan + 0.011023515835404396 + 0.0016207455191761255 running_F1_1: 0.0 sum: 3/0 
+Is_training: True   epoch: 7/19   batch: 351/353   need_time: 0.28141549797288856h   loss: 0.8732172846794128 =  0.4439798593521118 + 0.336344450712204 + 0.09213420748710632 + 0.0007587253348901868 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 7/19   epoch_F1_1: 0.871507041022501 
+acc: 0.99507 
+miou: 0.88363 
+mf1: 0.93450 
+auc: 0.99804 
+iou_0: 0.99498 
+iou_1: 0.77228 
+F1_0: 0.99748 
+F1_1: 0.87151 
+precision_0: 0.99894 
+precision_1: 0.81113 
+recall_0: 0.99603 
+recall_1: 0.94160 
+
+
+Begin evaluation...
+Is_training: False   epoch: 7/19   batch: 1/324   need_time: 0.34815037129068005h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 7/19   batch: 51/324   need_time: 0.33818846820960746h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 7/19   batch: 101/324   need_time: 0.3285873833036528h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 7/19   batch: 151/324   need_time: 0.3193403845105151h    running_F1_1: 0.7692306958712113 sum: 6/7
+Is_training: False   epoch: 7/19   batch: 201/324   need_time: 0.31042663234979945h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 7/19   batch: 251/324   need_time: 0.30195086952071937h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 7/19   batch: 301/324   need_time: 0.29373696177406144h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 7/19   epoch_F1_1: 0.6827518178239371 
+acc: 0.98808 
+miou: 0.75312 
+mf1: 0.83834 
+auc: 0.89916 
+iou_0: 0.98793 
+iou_1: 0.51832 
+F1_0: 0.99393 
+F1_1: 0.68275 
+precision_0: 0.98991 
+precision_1: 0.86672 
+recall_0: 0.99798 
+recall_1: 0.56321 
+
+
+Lastest model updated. Epoch_F1_1=0.6827518178239371, Historical_best_F1_1=0.6813756729262938 (at epoch 5
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 8/19   batch: 1/353   need_time: 0.28547948335231715h   loss: 0.6496481895446777 =  0.4693582355976105 + 0.14896723628044128 + 0.029757773503661156 + 0.0015649452107027173 running_F1_1: 0.7499999217689083 sum: 3/5 
+Is_training: True   epoch: 8/19   batch: 51/353   need_time: 0.28145144850314996h   loss: 0.634318470954895 =  0.505955696105957 + 0.10101863741874695 + 0.024989310652017593 + 0.0023547881282866 running_F1_1: 0.8124999364372383 sum: 19/13 
+Is_training: True   epoch: 8/19   batch: 101/353   need_time: 0.2775294586026769h   loss: 0.6115313768386841 =  0.41781163215637207 + 0.12163174152374268 + 0.07127763330936432 + 0.0008103727595880628 running_F1_1: 0.9620252540336588 sum: 38/41 
+Is_training: True   epoch: 8/19   batch: 151/353   need_time: 0.2735530756812725h   loss: 0.6002469062805176 =  0.5075225234031677 + 0.08810251951217651 + 0.0046218521893024445 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 8/19   batch: 201/353   need_time: 0.26971494636789h   loss: 0.4546172320842743 =  0.309603750705719 + 0.12965606153011322 + 0.015357397496700287 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 8/19   batch: 251/353   need_time: 0.26584109138605344h   loss: 0.6789892911911011 =  0.5462871789932251 + 0.11394993960857391 + 0.01797572523355484 + 0.000776397529989481 running_F1_1: 0.7999999300638877 sum: 9/6 
+Is_training: True   epoch: 8/19   batch: 301/353   need_time: 0.26208185059180045h   loss: nan =  0.5113090872764587 + nan + 0.007606234401464462 + 0.0016207455191761255 running_F1_1: 0.0 sum: 2/0 
+Is_training: True   epoch: 8/19   batch: 351/353   need_time: 0.25829463579776135h   loss: 0.9053622484207153 =  0.4580463469028473 + 0.3476424813270569 + 0.09891469776630402 + 0.0007587253348901868 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 8/19   epoch_F1_1: 0.8719413996678098 
+acc: 0.99508 
+miou: 0.88397 
+mf1: 0.93472 
+auc: 0.99822 
+iou_0: 0.99499 
+iou_1: 0.77296 
+F1_0: 0.99749 
+F1_1: 0.87194 
+precision_0: 0.99898 
+precision_1: 0.81041 
+recall_0: 0.99601 
+recall_1: 0.94358 
+
+
+Begin evaluation...
+Is_training: False   epoch: 8/19   batch: 1/324   need_time: 0.31666629001466584h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 8/19   batch: 51/324   need_time: 0.3081245988941767h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 8/19   batch: 101/324   need_time: 0.29986579626601717h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 8/19   batch: 151/324   need_time: 0.29183520658353396h    running_F1_1: 0.61538454484658 sum: 6/7
+Is_training: False   epoch: 8/19   batch: 201/324   need_time: 0.28406864990473335h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 8/19   batch: 251/324   need_time: 0.27652257811935316h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 8/19   batch: 301/324   need_time: 0.26924347514311137h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 8/19   epoch_F1_1: 0.6504520778129038 
+acc: 0.98627 
+miou: 0.73404 
+mf1: 0.82172 
+auc: 0.90323 
+iou_0: 0.98609 
+iou_1: 0.48198 
+F1_0: 0.99300 
+F1_1: 0.65045 
+precision_0: 0.98984 
+precision_1: 0.77374 
+recall_0: 0.99618 
+recall_1: 0.56105 
+
+
+Lastest model updated. Epoch_F1_1=0.6504520778129038, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 9/19   batch: 1/353   need_time: 0.26183580342171503h   loss: 0.796260416507721 =  0.5129693746566772 + 0.18505243957042694 + 0.09823860228061676 + 0.0 running_F1_1: 0.5714285033089815 sum: 2/5 
+Is_training: True   epoch: 9/19   batch: 51/353   need_time: 0.2578952074751736h   loss: 0.5597789287567139 =  0.43239259719848633 + 0.10525882244110107 + 0.019772691652178764 + 0.0023547881282866 running_F1_1: 0.8965516578003041 sum: 16/13 
+Is_training: True   epoch: 9/19   batch: 101/353   need_time: 0.254058876993017h   loss: 0.7298756837844849 =  0.5651611089706421 + 0.11861471831798553 + 0.04528946802020073 + 0.0008103727595880628 running_F1_1: 0.9749999375268854 sum: 39/41 
+Is_training: True   epoch: 9/19   batch: 151/353   need_time: 0.2502521876775591h   loss: 0.5808357000350952 =  0.47486668825149536 + 0.10081227123737335 + 0.0051567391492426395 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 9/19   batch: 201/353   need_time: 0.24653004119649513h   loss: 0.46083736419677734 =  0.3362423777580261 + 0.112018883228302 + 0.012576105073094368 + 0.0 running_F1_1: 0.9523808820988354 sum: 11/10 
+Is_training: True   epoch: 9/19   batch: 251/353   need_time: 0.24272587108179816h   loss: 0.6421155333518982 =  0.5252987146377563 + 0.10810419172048569 + 0.00871264934539795 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 9/19   batch: 301/353   need_time: 0.23906656082283512h   loss: nan =  0.459921658039093 + nan + 0.017309576272964478 + 0.0016207455191761255 running_F1_1: 0.0 sum: 4/0 
+Is_training: True   epoch: 9/19   batch: 351/353   need_time: 0.23534147092688468h   loss: 0.8801670670509338 =  0.42760804295539856 + 0.34477582573890686 + 0.10702451318502426 + 0.0007587253348901868 running_F1_1: 0.8387096119224757 sum: 14/17 
+Is_training: True   epoch: 9/19   epoch_F1_1: 0.8755157591261331 
+acc: 0.99522 
+miou: 0.88687 
+mf1: 0.93654 
+auc: 0.99850 
+iou_0: 0.99514 
+iou_1: 0.77859 
+F1_0: 0.99757 
+F1_1: 0.87552 
+precision_0: 0.99900 
+precision_1: 0.81550 
+recall_0: 0.99613 
+recall_1: 0.94506 
+
+
+Begin evaluation...
+Is_training: False   epoch: 9/19   batch: 1/324   need_time: 0.28732875498989613h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 9/19   batch: 51/324   need_time: 0.2797547079697966h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 9/19   batch: 101/324   need_time: 0.2723796509585956h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 9/19   batch: 151/324   need_time: 0.26517455135984985h    running_F1_1: 0.6666665954722352 sum: 5/7
+Is_training: False   epoch: 9/19   batch: 201/324   need_time: 0.2582103155101323h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 9/19   batch: 251/324   need_time: 0.25138695082073564h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 9/19   batch: 301/324   need_time: 0.24481908836221894h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 9/19   epoch_F1_1: 0.6633131565822652 
+acc: 0.98770 
+miou: 0.74189 
+mf1: 0.82853 
+auc: 0.89580 
+iou_0: 0.98755 
+iou_1: 0.49624 
+F1_0: 0.99374 
+F1_1: 0.66331 
+precision_0: 0.98920 
+precision_1: 0.88068 
+recall_0: 0.99832 
+recall_1: 0.53201 
+
+
+Lastest model updated. Epoch_F1_1=0.6633131565822652, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 10/19   batch: 1/353   need_time: 0.23808072443051623h   loss: 0.6119322776794434 =  0.4257746934890747 + 0.15347304940223694 + 0.032684583216905594 + 0.0 running_F1_1: 0.5714285033089815 sum: 2/5 
+Is_training: True   epoch: 10/19   batch: 51/353   need_time: 0.23425894740453335h   loss: 0.577820360660553 =  0.4489900469779968 + 0.10943971574306488 + 0.01860562339425087 + 0.0007849293760955334 running_F1_1: 0.9285713613641544 sum: 15/13 
+Is_training: True   epoch: 10/19   batch: 101/353   need_time: 0.2305074894640502h   loss: 0.40974122285842896 =  0.2061103880405426 + 0.12577365338802338 + 0.07542606443166733 + 0.00243111839517951 running_F1_1: 0.9512194498247686 sum: 41/41 
+Is_training: True   epoch: 10/19   batch: 151/353   need_time: 0.22671975889726972h   loss: 0.4237363040447235 =  0.33122923970222473 + 0.08612434566020966 + 0.006382745690643787 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 10/19   batch: 201/353   need_time: 0.22303951183472193h   loss: 0.4670582711696625 =  0.325253963470459 + 0.12119567394256592 + 0.02060863748192787 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 10/19   batch: 251/353   need_time: 0.21930642864137326h   loss: 0.6420210003852844 =  0.5137723684310913 + 0.11517541110515594 + 0.012296807952225208 + 0.000776397529989481 running_F1_1: 0.857142784157582 sum: 8/6 
+Is_training: True   epoch: 10/19   batch: 301/353   need_time: 0.21568400880675723h   loss: nan =  0.445858359336853 + nan + 0.011756978929042816 + 0.0016207455191761255 running_F1_1: 0.0 sum: 3/0 
+Is_training: True   epoch: 10/19   batch: 351/353   need_time: 0.212062648501064h   loss: 0.8253549337387085 =  0.4176638722419739 + 0.3274259567260742 + 0.07950639724731445 + 0.0007587253348901868 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 10/19   epoch_F1_1: 0.8804958653749516 
+acc: 0.99542 
+miou: 0.89092 
+mf1: 0.93908 
+auc: 0.99847 
+iou_0: 0.99534 
+iou_1: 0.78651 
+F1_0: 0.99767 
+F1_1: 0.88050 
+precision_0: 0.99908 
+precision_1: 0.82120 
+recall_0: 0.99626 
+recall_1: 0.94902 
+
+
+Begin evaluation...
+Is_training: False   epoch: 10/19   batch: 1/324   need_time: 0.2588960804242645h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 10/19   batch: 51/324   need_time: 0.2520465278202831h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 10/19   batch: 101/324   need_time: 0.24538731897549781h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 10/19   batch: 151/324   need_time: 0.2388814089108523h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 10/19   batch: 201/324   need_time: 0.2325345410275093h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 10/19   batch: 251/324   need_time: 0.22633607597855815h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 10/19   batch: 301/324   need_time: 0.22027934579299238h    running_F1_1: 0.0 sum: 2/0
+Is_training: False   epoch: 10/19   epoch_F1_1: 0.6520397117202564 
+acc: 0.98757 
+miou: 0.73557 
+mf1: 0.82286 
+auc: 0.89986 
+iou_0: 0.98742 
+iou_1: 0.48372 
+F1_0: 0.99367 
+F1_1: 0.65204 
+precision_0: 0.98873 
+precision_1: 0.89887 
+recall_0: 0.99866 
+recall_1: 0.51157 
+
+
+Lastest model updated. Epoch_F1_1=0.6520397117202564, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 11/19   batch: 1/353   need_time: 0.21411965239223593h   loss: 0.5635780692100525 =  0.41485464572906494 + 0.13369038701057434 + 0.01503306720405817 + 0.0 running_F1_1: 0.8888888064725945 sum: 4/5 
+Is_training: True   epoch: 11/19   batch: 51/353   need_time: 0.21037220508891039h   loss: 0.5774286985397339 =  0.4554611146450043 + 0.10120290517807007 + 0.01840991899371147 + 0.0023547881282866 running_F1_1: 0.8965516578003041 sum: 16/13 
+Is_training: True   epoch: 11/19   batch: 101/353   need_time: 0.2067017614442601h   loss: 0.6594781875610352 =  0.43653732538223267 + 0.1258230209350586 + 0.09630744159221649 + 0.0008103727595880628 running_F1_1: 0.9749999375268854 sum: 39/41 
+Is_training: True   epoch: 11/19   batch: 151/353   need_time: 0.20299589138262106h   loss: 0.5741433501243591 =  0.4799731373786926 + 0.08845661580562592 + 0.005713610909879208 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 11/19   batch: 201/353   need_time: 0.19936707169486276h   loss: 0.3601781129837036 =  0.2421298623085022 + 0.1081850528717041 + 0.00986318476498127 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 11/19   batch: 251/353   need_time: 0.19570878378353213h   loss: 0.5608358979225159 =  0.4306465685367584 + 0.11291998624801636 + 0.017269330099225044 + 0.0 running_F1_1: 0.9090908302748542 sum: 5/6 
+Is_training: True   epoch: 11/19   batch: 301/353   need_time: 0.1921449605725161h   loss: nan =  0.5735862255096436 + nan + 0.006543515715748072 + 0.0 running_F1_1: 0.0 sum: 2/0 
+Is_training: True   epoch: 11/19   batch: 351/353   need_time: 0.18859983296175725h   loss: 1.0097023248672485 =  0.610331654548645 + 0.3276269733905792 + 0.07098495960235596 + 0.0007587253348901868 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 11/19   epoch_F1_1: 0.9013394862942194 
+acc: 0.99628 
+miou: 0.90830 
+mf1: 0.94972 
+auc: 0.99904 
+iou_0: 0.99621 
+iou_1: 0.82040 
+F1_0: 0.99810 
+F1_1: 0.90134 
+precision_0: 0.99923 
+precision_1: 0.85145 
+recall_0: 0.99698 
+recall_1: 0.95744 
+
+
+Begin evaluation...
+Is_training: False   epoch: 11/19   batch: 1/324   need_time: 0.23118198450527427h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 11/19   batch: 51/324   need_time: 0.22492441582120976h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 11/19   batch: 101/324   need_time: 0.21885274119179698h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 11/19   batch: 151/324   need_time: 0.21289811029375774h    running_F1_1: 0.8749999282881659 sum: 9/7
+Is_training: False   epoch: 11/19   batch: 201/324   need_time: 0.20708532328672447h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 11/19   batch: 251/324   need_time: 0.2014384215118807h    running_F1_1: 0.9090908302748542 sum: 6/5
+Is_training: False   epoch: 11/19   batch: 301/324   need_time: 0.19588193193337178h    running_F1_1: 0.0 sum: 4/0
+Is_training: False   epoch: 11/19   epoch_F1_1: 0.5694142570653145 
+acc: 0.98055 
+miou: 0.68916 
+mf1: 0.77973 
+auc: 0.88005 
+iou_0: 0.98030 
+iou_1: 0.39803 
+F1_0: 0.99005 
+F1_1: 0.56941 
+precision_0: 0.98986 
+precision_1: 0.57408 
+recall_0: 0.99024 
+recall_1: 0.56482 
+
+
+Lastest model updated. Epoch_F1_1=0.5694142570653145, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 12/19   batch: 1/353   need_time: 0.19018734026768433h   loss: 0.79532390832901 =  0.6318809986114502 + 0.15288154780864716 + 0.010561336763203144 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 12/19   batch: 51/353   need_time: 0.18651289469103763h   loss: 0.6651220917701721 =  0.5276161432266235 + 0.11377185583114624 + 0.022164199501276016 + 0.0015698587521910667 running_F1_1: 0.8965516578003041 sum: 16/13 
+Is_training: True   epoch: 12/19   batch: 101/353   need_time: 0.18291180150509243h   loss: 0.7950197458267212 =  0.5618248581886292 + 0.12624865770339966 + 0.10613586753606796 + 0.0008103727595880628 running_F1_1: 0.9620252540336588 sum: 38/41 
+Is_training: True   epoch: 12/19   batch: 151/353   need_time: 0.17929090642112858h   loss: 0.6333429217338562 =  0.535765528678894 + 0.09446108341217041 + 0.003116290783509612 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 12/19   batch: 201/353   need_time: 0.17571677372766115h   loss: 0.4881894588470459 =  0.3673422634601593 + 0.11528769135475159 + 0.005559495650231838 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 12/19   batch: 251/353   need_time: 0.17211024203939612h   loss: 0.717241108417511 =  0.5743662118911743 + 0.1206415593624115 + 0.021456923335790634 + 0.000776397529989481 running_F1_1: 0.857142784157582 sum: 8/6 
+Is_training: True   epoch: 12/19   batch: 301/353   need_time: 0.16858668218924702h   loss: nan =  0.49982377886772156 + nan + 0.011120437644422054 + 0.0016207455191761255 running_F1_1: 0.0 sum: 3/0 
+Is_training: True   epoch: 12/19   batch: 351/353   need_time: 0.16504415364363834h   loss: 0.7841099500656128 =  0.4111611247062683 + 0.3197307288646698 + 0.05321813374757767 + 0.0 running_F1_1: 0.9090908429729967 sum: 16/17 
+Is_training: True   epoch: 12/19   epoch_F1_1: 0.9062243946046756 
+acc: 0.99647 
+miou: 0.91247 
+mf1: 0.95221 
+auc: 0.99911 
+iou_0: 0.99641 
+iou_1: 0.82853 
+F1_0: 0.99820 
+F1_1: 0.90622 
+precision_0: 0.99928 
+precision_1: 0.85803 
+recall_0: 0.99713 
+recall_1: 0.96016 
+
+
+Begin evaluation...
+Is_training: False   epoch: 12/19   batch: 1/324   need_time: 0.20407977237776298h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 12/19   batch: 51/324   need_time: 0.1984057596809606h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 12/19   batch: 101/324   need_time: 0.19283722635288533h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 12/19   batch: 151/324   need_time: 0.1873569879434783h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 12/19   batch: 201/324   need_time: 0.182002453456882h    running_F1_1: 0.6249999394640368 sum: 5/11
+Is_training: False   epoch: 12/19   batch: 251/324   need_time: 0.17675622589335768h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 12/19   batch: 301/324   need_time: 0.17164022887980726h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 12/19   epoch_F1_1: 0.6612410430724802 
+acc: 0.98776 
+miou: 0.74077 
+mf1: 0.82751 
+auc: 0.89535 
+iou_0: 0.98762 
+iou_1: 0.49392 
+F1_0: 0.99377 
+F1_1: 0.66124 
+precision_0: 0.98903 
+precision_1: 0.89450 
+recall_0: 0.99856 
+recall_1: 0.52448 
+
+
+Lastest model updated. Epoch_F1_1=0.6612410430724802, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 13/19   batch: 1/353   need_time: 0.16635104162357373h   loss: 0.6436886787414551 =  0.4302859306335449 + 0.16741853952407837 + 0.045984212309122086 + 0.0 running_F1_1: 0.5714285033089815 sum: 2/5 
+Is_training: True   epoch: 13/19   batch: 51/353   need_time: 0.1627414857817648h   loss: 0.654278039932251 =  0.4815489947795868 + 0.1177755817770958 + 0.050243865698575974 + 0.0047095762565732 running_F1_1: 0.6842104683622471 sum: 25/13 
+Is_training: True   epoch: 13/19   batch: 101/353   need_time: 0.15918921520150978h   loss: 0.6935953497886658 =  0.46518826484680176 + 0.13925457000732422 + 0.08753173798322678 + 0.0016207455191761255 running_F1_1: 0.9629629005329836 sum: 40/41 
+Is_training: True   epoch: 13/19   batch: 151/353   need_time: 0.1556235295002331h   loss: 0.5649357438087463 =  0.4680034816265106 + 0.09015357494354248 + 0.006778679322451353 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 13/19   batch: 201/353   need_time: 0.15210207360292144h   loss: 0.37654682993888855 =  0.28201282024383545 + 0.09006248414516449 + 0.004471512511372566 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 13/19   batch: 251/353   need_time: 0.1485449570119169h   loss: 0.731683611869812 =  0.5957785248756409 + 0.11744993180036545 + 0.01845512166619301 + 0.0 running_F1_1: 0.8333332571718475 sum: 6/6 
+Is_training: True   epoch: 13/19   batch: 301/353   need_time: 0.14503190110856293h   loss: nan =  0.5667861700057983 + nan + 0.019902892410755157 + 0.0008103727595880628 running_F1_1: 0.0 sum: 6/0 
+Is_training: True   epoch: 13/19   batch: 351/353   need_time: 0.1415263098304204h   loss: 0.7945283055305481 =  0.42732560634613037 + 0.3211287260055542 + 0.04607396945357323 + 0.0 running_F1_1: 0.9090908429729967 sum: 16/17 
+Is_training: True   epoch: 13/19   epoch_F1_1: 0.8701030334835005 
+acc: 0.99501 
+miou: 0.88250 
+mf1: 0.93378 
+auc: 0.99853 
+iou_0: 0.99493 
+iou_1: 0.77007 
+F1_0: 0.99746 
+F1_1: 0.87010 
+precision_0: 0.99891 
+precision_1: 0.80998 
+recall_0: 0.99601 
+recall_1: 0.93987 
+
+
+Begin evaluation...
+Is_training: False   epoch: 13/19   batch: 1/324   need_time: 0.17756072287045216h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 13/19   batch: 51/324   need_time: 0.1723213178946119h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 13/19   batch: 101/324   need_time: 0.16717613787134517h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 13/19   batch: 151/324   need_time: 0.16212418642923612h    running_F1_1: 0.3999999403953613 sum: 3/7
+Is_training: False   epoch: 13/19   batch: 201/324   need_time: 0.15717323168811895h    running_F1_1: 0.5882352314193408 sum: 6/11
+Is_training: False   epoch: 13/19   batch: 251/324   need_time: 0.15229372323994445h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 13/19   batch: 301/324   need_time: 0.1475130073372461h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 13/19   epoch_F1_1: 0.6773572228585981 
+acc: 0.98768 
+miou: 0.74982 
+mf1: 0.83554 
+auc: 0.89946 
+iou_0: 0.98752 
+iou_1: 0.51212 
+F1_0: 0.99372 
+F1_1: 0.67736 
+precision_0: 0.99001 
+precision_1: 0.83876 
+recall_0: 0.99746 
+recall_1: 0.56805 
+
+
+Lastest model updated. Epoch_F1_1=0.6773572228585981, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+lr: 0.0100000
+Is_training: True   epoch: 14/19   batch: 1/353   need_time: 0.14257205340608084h   loss: 0.5856910347938538 =  0.4500364661216736 + 0.12775543332099915 + 0.007899094372987747 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 14/19   batch: 51/353   need_time: 0.13901963546415289h   loss: 0.5765022039413452 =  0.4626457989215851 + 0.09917863458395004 + 0.012322944588959217 + 0.0023547881282866 running_F1_1: 0.8666666012340162 sum: 17/13 
+Is_training: True   epoch: 14/19   batch: 101/353   need_time: 0.1355229627811937h   loss: 0.7309426069259644 =  0.4877699017524719 + 0.14816506206989288 + 0.09419728815555573 + 0.0008103727595880628 running_F1_1: 0.9749999375268854 sum: 39/41 
+Is_training: True   epoch: 14/19   batch: 151/353   need_time: 0.13198900970211677h   loss: 0.5460739135742188 =  0.4551279544830322 + 0.08838348835706711 + 0.0025624639820307493 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 14/19   batch: 201/353   need_time: 0.12849063127578916h   loss: 0.4523448646068573 =  0.33867594599723816 + 0.10542511194944382 + 0.008243786171078682 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 14/19   batch: 251/353   need_time: 0.12497660810016208h   loss: 0.667496919631958 =  0.522728681564331 + 0.1127658411860466 + 0.03122600167989731 + 0.000776397529989481 running_F1_1: 0.6315788879288902 sum: 13/6 
+Is_training: True   epoch: 14/19   batch: 301/353   need_time: 0.12150061484120322h   loss: nan =  0.4770697057247162 + nan + 0.01802864484488964 + 0.0016207455191761255 running_F1_1: 0.0 sum: 4/0 
+Is_training: True   epoch: 14/19   batch: 351/353   need_time: 0.11804604721936016h   loss: 0.7671421766281128 =  0.4015408158302307 + 0.3191725015640259 + 0.04642883315682411 + 0.0 running_F1_1: 0.9090908429729967 sum: 16/17 
+Is_training: True   epoch: 14/19   epoch_F1_1: 0.9064176768527911 
+acc: 0.99647 
+miou: 0.91263 
+mf1: 0.95231 
+auc: 0.99931 
+iou_0: 0.99641 
+iou_1: 0.82885 
+F1_0: 0.99820 
+F1_1: 0.90642 
+precision_0: 0.99930 
+precision_1: 0.85758 
+recall_0: 0.99711 
+recall_1: 0.96115 
+
+
+Begin evaluation...
+Is_training: False   epoch: 14/19   batch: 1/324   need_time: 0.1515199290950043h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 14/19   batch: 51/324   need_time: 0.1466066257801297h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 14/19   batch: 101/324   need_time: 0.1418121170524942h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 14/19   batch: 151/324   need_time: 0.13711070264492947h    running_F1_1: 0.5454544784609008 sum: 4/7
+Is_training: False   epoch: 14/19   batch: 201/324   need_time: 0.13249108621848354h    running_F1_1: 0.6249999394640368 sum: 5/11
+Is_training: False   epoch: 14/19   batch: 251/324   need_time: 0.12795106055157862h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 14/19   batch: 301/324   need_time: 0.12349040478030973h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 14/19   epoch_F1_1: 0.7144208951125004 
+acc: 0.98892 
+miou: 0.77224 
+mf1: 0.85438 
+auc: 0.90695 
+iou_0: 0.98876 
+iou_1: 0.55572 
+F1_0: 0.99435 
+F1_1: 0.71442 
+precision_0: 0.99095 
+precision_1: 0.86412 
+recall_0: 0.99777 
+recall_1: 0.60893 
+
+
+Lastest model updated. Epoch_F1_1=0.7144208951125004, Historical_best_F1_1=0.6827518178239371 (at epoch 7
+)
+***************best model updated!***************
+
+lr: 0.0100000
+Is_training: True   epoch: 15/19   batch: 1/353   need_time: 0.11886076060976646h   loss: 0.5454742312431335 =  0.43350106477737427 + 0.10968494415283203 + 0.002288221614435315 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 15/19   batch: 51/353   need_time: 0.1153432164685059h   loss: 0.5841187834739685 =  0.4655706584453583 + 0.10641389340162277 + 0.01213425025343895 + 0.0 running_F1_1: 0.9629628949368152 sum: 14/13 
+Is_training: True   epoch: 15/19   batch: 101/353   need_time: 0.11185728922931445h   loss: 0.7308412790298462 =  0.49595963954925537 + 0.140252947807312 + 0.09300793707370758 + 0.0016207455191761255 running_F1_1: 0.9620252540336588 sum: 38/41 
+Is_training: True   epoch: 15/19   batch: 151/353   need_time: 0.10836341463889444h   loss: 0.5357755422592163 =  0.4451247453689575 + 0.08901903033256531 + 0.0016317627159878612 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 15/19   batch: 201/353   need_time: 0.10489150575759898h   loss: 0.4950994849205017 =  0.3393189013004303 + 0.1345946192741394 + 0.021185951307415962 + 0.0 running_F1_1: 0.9473683497251935 sum: 9/10 
+Is_training: True   epoch: 15/19   batch: 251/353   need_time: 0.10141249624467359h   loss: 0.6642484664916992 =  0.5458228588104248 + 0.10536199808120728 + 0.012287186458706856 + 0.000776397529989481 running_F1_1: 0.7999999300638877 sum: 9/6 
+Is_training: True   epoch: 15/19   batch: 301/353   need_time: 0.0979661741932098h   loss: nan =  0.5838789343833923 + nan + 0.002818761393427849 + 0.0 running_F1_1: 0.0 sum: 1/0 
+Is_training: True   epoch: 15/19   batch: 351/353   need_time: 0.09452190359947174h   loss: 0.8853973150253296 =  0.46501317620277405 + 0.3342074155807495 + 0.08617674559354782 + 0.0 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 15/19   epoch_F1_1: 0.9289009223838933 
+acc: 0.99736 
+miou: 0.93228 
+mf1: 0.96378 
+auc: 0.99965 
+iou_0: 0.99731 
+iou_1: 0.86724 
+F1_0: 0.99865 
+F1_1: 0.92890 
+precision_0: 0.99948 
+precision_1: 0.88985 
+recall_0: 0.99782 
+recall_1: 0.97154 
+
+
+Begin evaluation...
+Is_training: False   epoch: 15/19   batch: 1/324   need_time: 0.12577775983203984h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 15/19   batch: 51/324   need_time: 0.12118754833455499h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 15/19   batch: 101/324   need_time: 0.11667799774463099h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 15/19   batch: 151/324   need_time: 0.11226335739734629h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 15/19   batch: 201/324   need_time: 0.10791897161348414h    running_F1_1: 0.5263157247506415 sum: 8/11
+Is_training: False   epoch: 15/19   batch: 251/324   need_time: 0.10364696718716712h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 15/19   batch: 301/324   need_time: 0.09943362730052956h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 15/19   epoch_F1_1: 0.6112720843785014 
+acc: 0.98522 
+miou: 0.71261 
+mf1: 0.80187 
+auc: 0.89214 
+iou_0: 0.98504 
+iou_1: 0.44017 
+F1_0: 0.99247 
+F1_1: 0.61127 
+precision_0: 0.98868 
+precision_1: 0.76164 
+recall_0: 0.99628 
+recall_1: 0.51049 
+
+
+Lastest model updated. Epoch_F1_1=0.6112720843785014, Historical_best_F1_1=0.7144208951125004 (at epoch 14
+)
+lr: 0.0100000
+Is_training: True   epoch: 16/19   batch: 1/353   need_time: 0.09505437456717535h   loss: 0.6660905480384827 =  0.5266755819320679 + 0.1301012933254242 + 0.00931366253644228 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 16/19   batch: 51/353   need_time: 0.09157288216986849h   loss: 0.5655984282493591 =  0.4494610130786896 + 0.10622285306453705 + 0.009914595633745193 + 0.0 running_F1_1: 0.9999999312254135 sum: 13/13 
+Is_training: True   epoch: 16/19   batch: 101/353   need_time: 0.08811391383795347h   loss: 0.8285698294639587 =  0.6162883043289185 + 0.14297616481781006 + 0.06849499046802521 + 0.0008103727595880628 running_F1_1: 0.9749999375268854 sum: 39/41 
+Is_training: True   epoch: 16/19   batch: 151/353   need_time: 0.08465094349302098h   loss: 0.49295198917388916 =  0.3973686993122101 + 0.09167368710041046 + 0.003909586928784847 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 16/19   batch: 201/353   need_time: 0.0812153937058118h   loss: 0.4837951064109802 =  0.3513335585594177 + 0.11784859746694565 + 0.014612937346100807 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 16/19   batch: 251/353   need_time: 0.0777716308520114h   loss: 0.6404979228973389 =  0.5075008869171143 + 0.11349307000637054 + 0.019503943622112274 + 0.0 running_F1_1: 0.7999999300638877 sum: 9/6 
+Is_training: True   epoch: 16/19   batch: 301/353   need_time: 0.07436264477524106h   loss: nan =  0.5082487463951111 + nan + 0.0071020228788256645 + 0.0016207455191761255 running_F1_1: 0.0 sum: 3/0 
+Is_training: True   epoch: 16/19   batch: 351/353   need_time: 0.07094484671508824h   loss: 0.7244058847427368 =  0.4068402945995331 + 0.2969817519187927 + 0.020583845674991608 + 0.0 running_F1_1: 0.941176404383772 sum: 17/17 
+Is_training: True   epoch: 16/19   epoch_F1_1: 0.9177792799635023 
+acc: 0.99691 
+miou: 0.92246 
+mf1: 0.95810 
+auc: 0.99952 
+iou_0: 0.99686 
+iou_1: 0.84805 
+F1_0: 0.99843 
+F1_1: 0.91778 
+precision_0: 0.99945 
+precision_1: 0.87125 
+recall_0: 0.99741 
+recall_1: 0.96956 
+
+
+Begin evaluation...
+Is_training: False   epoch: 16/19   batch: 1/324   need_time: 0.10025405660526594h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 16/19   batch: 51/324   need_time: 0.09594832571022222h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 16/19   batch: 101/324   need_time: 0.09171010848404705h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 16/19   batch: 151/324   need_time: 0.08753548138100528h    running_F1_1: 0.22222217512720108 sum: 2/7
+Is_training: False   epoch: 16/19   batch: 201/324   need_time: 0.08343226403954589h    running_F1_1: 0.6249999394640368 sum: 5/11
+Is_training: False   epoch: 16/19   batch: 251/324   need_time: 0.0793861682639508h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 16/19   batch: 301/324   need_time: 0.0754110775798643h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 16/19   epoch_F1_1: 0.6486673041974421 
+acc: 0.98757 
+miou: 0.73372 
+mf1: 0.82117 
+auc: 0.87894 
+iou_0: 0.98742 
+iou_1: 0.48002 
+F1_0: 0.99367 
+F1_1: 0.64867 
+precision_0: 0.98856 
+precision_1: 0.90971 
+recall_0: 0.99883 
+recall_1: 0.50403 
+
+
+Lastest model updated. Epoch_F1_1=0.6486673041974421, Historical_best_F1_1=0.7144208951125004 (at epoch 14
+)
+lr: 0.0100000
+Is_training: True   epoch: 17/19   batch: 1/353   need_time: 0.07126254296525429h   loss: 0.6002367734909058 =  0.42699649930000305 + 0.1484963297843933 + 0.023961449041962624 + 0.0007824726053513587 running_F1_1: 0.8888888064725945 sum: 4/5 
+Is_training: True   epoch: 17/19   batch: 51/353   need_time: 0.0678147304708423h   loss: 0.5335671305656433 =  0.4196382462978363 + 0.10540749132633209 + 0.006951486226171255 + 0.0015698587521910667 running_F1_1: 0.9285713613641544 sum: 15/13 
+Is_training: True   epoch: 17/19   batch: 101/353   need_time: 0.06438933921551103h   loss: 0.6003751754760742 =  0.3871064782142639 + 0.1318950057029724 + 0.08056333661079407 + 0.0008103727595880628 running_F1_1: 0.9620252540336588 sum: 38/41 
+Is_training: True   epoch: 17/19   batch: 151/353   need_time: 0.060958406006402774h   loss: 0.5955540537834167 =  0.49588045477867126 + 0.09800081700086594 + 0.0016728059854358435 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 17/19   batch: 201/353   need_time: 0.057550241026727726h   loss: 0.49142611026763916 =  0.35543495416641235 + 0.12236852943897247 + 0.013622638769447803 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 17/19   batch: 251/353   need_time: 0.05413361036464203h   loss: 0.6278037428855896 =  0.514532208442688 + 0.10834002494812012 + 0.004931509494781494 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 17/19   batch: 301/353   need_time: 0.050734756428836424h   loss: nan =  0.5390157103538513 + nan + 0.0054466258734464645 + 0.0 running_F1_1: 0.0 sum: 2/0 
+Is_training: True   epoch: 17/19   batch: 351/353   need_time: 0.04734000448560178h   loss: 0.8553210496902466 =  0.4258156716823578 + 0.34182465076446533 + 0.08768071234226227 + 0.0 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 17/19   epoch_F1_1: 0.92693895764924 
+acc: 0.99729 
+miou: 0.93053 
+mf1: 0.96278 
+auc: 0.99960 
+iou_0: 0.99724 
+iou_1: 0.86383 
+F1_0: 0.99862 
+F1_1: 0.92694 
+precision_0: 0.99943 
+precision_1: 0.88874 
+recall_0: 0.99781 
+recall_1: 0.96857 
+
+
+Begin evaluation...
+Is_training: False   epoch: 17/19   batch: 1/324   need_time: 0.07492854144930795h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 17/19   batch: 51/324   need_time: 0.07086253177207816h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 17/19   batch: 101/324   need_time: 0.06685101316050583h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 17/19   batch: 151/324   need_time: 0.06289676490550006h    running_F1_1: 0.3999999403953613 sum: 3/7
+Is_training: False   epoch: 17/19   batch: 201/324   need_time: 0.05900029043352308h    running_F1_1: 0.5882352314193408 sum: 6/11
+Is_training: False   epoch: 17/19   batch: 251/324   need_time: 0.055162101701681204h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 17/19   batch: 301/324   need_time: 0.0513779246482844h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 17/19   epoch_F1_1: 0.6940840927789899 
+acc: 0.98816 
+miou: 0.75974 
+mf1: 0.84402 
+auc: 0.90406 
+iou_0: 0.98800 
+iou_1: 0.53149 
+F1_0: 0.99396 
+F1_1: 0.69408 
+precision_0: 0.99052 
+precision_1: 0.84255 
+recall_0: 0.99743 
+recall_1: 0.59010 
+
+
+Lastest model updated. Epoch_F1_1=0.6940840927789899, Historical_best_F1_1=0.7144208951125004 (at epoch 14
+)
+lr: 0.0100000
+Is_training: True   epoch: 18/19   batch: 1/353   need_time: 0.047436120779678896h   loss: 0.5922878384590149 =  0.46694058179855347 + 0.12308360636234283 + 0.002263646339997649 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 18/19   batch: 51/353   need_time: 0.044020008792650424h   loss: 0.5876965522766113 =  0.4729654788970947 + 0.10574200004339218 + 0.008989124558866024 + 0.0 running_F1_1: 0.9999999312254135 sum: 13/13 
+Is_training: True   epoch: 18/19   batch: 101/353   need_time: 0.04061768219459654h   loss: 0.7216078639030457 =  0.5004072189331055 + 0.13771340250968933 + 0.08267682790756226 + 0.0008103727595880628 running_F1_1: 0.9749999375268854 sum: 39/41 
+Is_training: True   epoch: 18/19   batch: 151/353   need_time: 0.037217250210191476h   loss: 0.6131120920181274 =  0.5169674158096313 + 0.092442587018013 + 0.003702122252434492 + 0.0 running_F1_1: 0.9230768468958428 sum: 7/6 
+Is_training: True   epoch: 18/19   batch: 201/353   need_time: 0.03382998867395669h   loss: 0.41914743185043335 =  0.3233380913734436 + 0.09384738653898239 + 0.001961940433830023 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 18/19   batch: 251/353   need_time: 0.030444770371187688h   loss: 0.6658751368522644 =  0.5209216475486755 + 0.11623557657003403 + 0.0271651279181242 + 0.001552795059978962 running_F1_1: 0.5714285162841422 sum: 15/6 
+Is_training: True   epoch: 18/19   batch: 301/353   need_time: 0.027069647130994162h   loss: nan =  0.5148080587387085 + nan + 0.006236957386136055 + 0.0 running_F1_1: 0.0 sum: 1/0 
+Is_training: True   epoch: 18/19   batch: 351/353   need_time: 0.023699162269292817h   loss: 0.7791388630867004 =  0.43641236424446106 + 0.3211761713027954 + 0.021550377830863 + 0.0 running_F1_1: 0.941176404383772 sum: 17/17 
+Is_training: True   epoch: 18/19   epoch_F1_1: 0.9378866610654876 
+acc: 0.99770 
+miou: 0.94035 
+mf1: 0.96836 
+auc: 0.99974 
+iou_0: 0.99766 
+iou_1: 0.88304 
+F1_0: 0.99883 
+F1_1: 0.93789 
+precision_0: 0.99955 
+precision_1: 0.90328 
+recall_0: 0.99811 
+recall_1: 0.97525 
+
+
+Begin evaluation...
+Is_training: False   epoch: 18/19   batch: 1/324   need_time: 0.04974221279367555h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 18/19   batch: 51/324   need_time: 0.045893183011693026h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 18/19   batch: 101/324   need_time: 0.04209282968550793h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 18/19   batch: 151/324   need_time: 0.03834284621387345h    running_F1_1: 0.24999996647238826 sum: 1/7
+Is_training: False   epoch: 18/19   batch: 201/324   need_time: 0.034650376173982964h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 18/19   batch: 251/324   need_time: 0.03100655841635709h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 18/19   batch: 301/324   need_time: 0.027407557377392713h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 18/19   epoch_F1_1: 0.7016205333435599 
+acc: 0.98850 
+miou: 0.76436 
+mf1: 0.84788 
+auc: 0.88813 
+iou_0: 0.98834 
+iou_1: 0.54038 
+F1_0: 0.99414 
+F1_1: 0.70162 
+precision_0: 0.99060 
+precision_1: 0.85714 
+recall_0: 0.99769 
+recall_1: 0.59387 
+
+
+Lastest model updated. Epoch_F1_1=0.7016205333435599, Historical_best_F1_1=0.7144208951125004 (at epoch 14
+)
+lr: 0.0100000
+Is_training: True   epoch: 19/19   batch: 1/353   need_time: 0.02365029416028853h   loss: 0.6221521496772766 =  0.4646112620830536 + 0.14341361820697784 + 0.014127228409051895 + 0.0 running_F1_1: 0.9999999165535014 sum: 5/5 
+Is_training: True   epoch: 19/19   batch: 51/353   need_time: 0.02026145639369348h   loss: 0.5787599682807922 =  0.43053513765335083 + 0.12233400344848633 + 0.024320971220731735 + 0.0015698587521910667 running_F1_1: 0.8387096129148527 sum: 18/13 
+Is_training: True   epoch: 19/19   batch: 101/353   need_time: 0.0168818395022159h   loss: 0.6797909140586853 =  0.46563005447387695 + 0.1324412077665329 + 0.08090926706790924 + 0.0008103727595880628 running_F1_1: 0.9620252540336588 sum: 38/41 
+Is_training: True   epoch: 19/19   batch: 151/353   need_time: 0.013505465949352811h   loss: 0.5680601596832275 =  0.47793716192245483 + 0.08876213431358337 + 0.0013609161833301187 + 0.0 running_F1_1: 0.9999999205271444 sum: 6/6 
+Is_training: True   epoch: 19/19   batch: 201/353   need_time: 0.010137532636782302h   loss: 0.4777981638908386 =  0.3545970022678375 + 0.11246335506439209 + 0.010737799108028412 + 0.0 running_F1_1: 0.9999999284744299 sum: 10/10 
+Is_training: True   epoch: 19/19   batch: 251/353   need_time: 0.006774350525945275h   loss: 0.7049493193626404 =  0.5847724676132202 + 0.1152149885892868 + 0.004961864091455936 + 0.0 running_F1_1: 0.9230768468958428 sum: 7/6 
+Is_training: True   epoch: 19/19   batch: 301/353   need_time: 0.0034178715901487067h   loss: nan =  0.6187437176704407 + nan + 0.004376791883260012 + 0.0 running_F1_1: 0.0 sum: 1/0 
+Is_training: True   epoch: 19/19   batch: 351/353   need_time: 6.696033391657844e-05h   loss: 0.9245601892471313 =  0.4960308074951172 + 0.3468363881111145 + 0.08169298619031906 + 0.0 running_F1_1: 0.8749999341089318 sum: 15/17 
+Is_training: True   epoch: 19/19   epoch_F1_1: 0.9591050643016864 
+acc: 0.99850 
+miou: 0.95995 
+mf1: 0.97917 
+auc: 0.99988 
+iou_0: 0.99848 
+iou_1: 0.92142 
+F1_0: 0.99924 
+F1_1: 0.95911 
+precision_0: 0.99976 
+precision_1: 0.93307 
+recall_0: 0.99872 
+recall_1: 0.98664 
+
+
+Begin evaluation...
+Is_training: False   epoch: 19/19   batch: 1/324   need_time: 0.024736653127032784h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 19/19   batch: 51/324   need_time: 0.021071220417667545h    running_F1_1: 0.0 sum: 0/0
+Is_training: False   epoch: 19/19   batch: 101/324   need_time: 0.017455255638113336h    running_F1_1: 0.0 sum: 0/13
+Is_training: False   epoch: 19/19   batch: 151/324   need_time: 0.01388680208550252h    running_F1_1: 0.9333332591586683 sum: 8/7
+Is_training: False   epoch: 19/19   batch: 201/324   need_time: 0.010366291895793186h    running_F1_1: 0.7058822885929137 sum: 6/11
+Is_training: False   epoch: 19/19   batch: 251/324   need_time: 0.006890282410530454h    running_F1_1: 0.9999999165535014 sum: 5/5
+Is_training: False   epoch: 19/19   batch: 301/324   need_time: 0.0034574672748286478h    running_F1_1: 0.0 sum: 1/0
+Is_training: False   epoch: 19/19   epoch_F1_1: 0.702718617049429 
+acc: 0.98768 
+miou: 0.76459 
+mf1: 0.84821 
+auc: 0.90615 
+iou_0: 0.98750 
+iou_1: 0.54169 
+F1_0: 0.99371 
+F1_1: 0.70272 
+precision_0: 0.99164 
+precision_1: 0.77967 
+recall_0: 0.99579 
+recall_1: 0.63959 
+
+
+Lastest model updated. Epoch_F1_1=0.702718617049429, Historical_best_F1_1=0.7144208951125004 (at epoch 14
+)
