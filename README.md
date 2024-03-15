@@ -1,5 +1,5 @@
 ## TKDS-PtNet
-![F2](https://github.com/Houzy116/TKDS-PtNet/assets/131630519/aee80b34-ec59-4b26-acf3-22be6eabd2b6)
+
 
 
 
@@ -7,6 +7,13 @@ TKDS-PtNet is a tool designed for monitoring damaged buildings.
 This repository includes a model comparison accuracy curve plotted by `make_figure.ipynb`. 
 Additionally, it contains records of different model outputs and ground truth file paths. 
 
+<p align="center">
+  <img src="https://github.com/Houzy116/TKDS-PtNet/assets/131630519/aee80b34-ec59-4b26-acf3-22be6eabd2b6" alt="S7" width="600">
+   <br>
+  <em><strong>Fig.1 The comparison between the commonly used urban change detection scheme and TKDS.</strong> The detector can be PtNet, ResNet, or any other detection methods. </strong>a.</strong> Generation of the image patch samples. </strong>b.</strong> The commonly used destruction detection methods. </strong>c.</strong> The proposed TKDS scheme.</em>
+</p>
+
+  
 ### Usage
 
 To train and validate the model, you can run `main.py`.
@@ -23,9 +30,21 @@ Configuration of training data sets, models, loaders, and various hyperparameter
   
 ### Logging Details
 The `checkpoint/` directory contains log files from experiments conducted with different configurations. These log files include detailed information about each experiment's `config_dict`, facilitating easy replication and comparison of results.
+<p align="center">
+  <img src="https://github.com/Houzy116/TKDS-PtNet/assets/131630519/ab501ac7-dd0b-4b15-87e1-b4d73b334a21" alt="S7" width="600">
+   <br>
+  <em><strong>Fig.2 The TKDS-PtNet architecture.</strong></em>
+</p>
 
-![S7](https://github.com/Houzy116/TKDS-PtNet/assets/131630519/ab501ac7-dd0b-4b15-87e1-b4d73b334a21)
-![S11](https://github.com/Houzy116/TKDS-PtNet/assets/131630519/35c7113b-7a9f-4b72-95e4-68aca8e25ab4)
+
+<p align="center">
+  <img src="https://github.com/Houzy116/TKDS-PtNet/assets/131630519/35c7113b-7a9f-4b72-95e4-68aca8e25ab4" alt="S7" width="600">
+   <br>
+  <em><strong>Fig.3 The semi-supervised domain adaptation strategy for building damage detection, incorporating supervised contrastive learning and Maximum Mean Discrepancy.</strong></em>
+</p>
+
+
+
 ### How to Use
 
 1. Clone this repository to your local machine.
